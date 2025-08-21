@@ -1,0 +1,84 @@
+<!-- 
+ 区块盒子 block boxes:
+ 行内盒子 inline boxes
+ 类型指的是页面流中的行为方式以及与页面上其他盒子的关系。
+ 盒子有内部显示和外部显示两种
+
+ 外部显示类型:
+ 一个拥有block外部显示类型的盒子会表现出以下行为:
+    1. 盒子会产生换行
+    2. width 和 height 属性可以发挥作用
+    3. margin、padding、border 会将其他元素从当前盒子周围推开
+    4. 如果未指定 width,方框将沿着行向拓展,以填充起容器中的可用空间.在大多数情况下盒子会变的与其容器一样宽,占据可用空间的100%
+
+某些HTML元素默认拥有block外部显示类型:
+    <p>, <h1> - <h6>
+
+一个拥有inline外部显示类型的盒子会表现出以下行为:
+    1. 盒子不会产生换行
+    2. width 和 height 属性不会发挥作用
+    3. 垂直方向的 margin、padding、border 会被应用,但是不会把其他处于inline状态的盒子推开
+    4. 水平方向的 margin、padding、border 会被应用且会将其他处于inline状态的盒子推开
+
+某些HTML元素默认拥有inline外部显示类型:、
+    <span>, <a>, <strong>, <em>
+
+
+内部显示类型
+盒子还有内部显示类型,他决定了盒子内元素的布局方式
+区块和行内布局是网络上的默认行为方式.默认情况下,在没有任何其他指令的情况下,方框内的元素也会以标准留的
+方式布局,并表现为区块或行内盒子
+例如,可以通过设置 display:flex; 来更改内部显示类型.该元素仍将使用外部显示类型block 但内部显示类型
+将变为flex. 该方框的任何直接子代都将成为弹性flex项,并按照弹性盒子规范执行
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    ul {
+        display: flex;
+        background-color: lightgreen;
+        padding: 10px;
+        border: 10px solid green;
+    }
+    li {
+        width: 50px;
+        height: 50px;
+        border: 20px solid blue;
+        padding: 10px;
+        margin: 5px;
+    }
+    .block {
+        display: block; /* 强制该span元素为block外部显示类型 */
+        background-color: lightcoral;
+        padding: 15px;
+        border: 10px solid red;
+    }
+</style>
+<body>
+    <p>hello world</p>
+    <ul>
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+        <li>c</li>
+        <li>c</li>
+        <li>c</li>
+        <li>c</li>
+        <li>c</li>
+    </ul>
+    <p>
+        come from <span class = 'block'>MDN</span>
+        let's learn about the <span>box</span> model.
+    </p>
+</body>
+</html>
