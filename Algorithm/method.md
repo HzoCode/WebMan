@@ -165,3 +165,27 @@ var postorderTraversal = function(root) {
 # 动态规划
 # 单调栈
 # 图论
+# 滑动窗口
+```javascript
+var lengthOfLongestSubstring = function(s) {
+    let l = 0, ans = 0;
+    const len = s.length, set  = new Set();
+    for(let r = 0; r < len; r++){
+        while(l <= r &&set.has(s[r])){
+            set.delete(s[l]);
+            l++; 
+        }
+        set.add(s[r]);
+        ans = Math.max(ans, set.size);
+    } 
+    return ans;
+};
+//外层循环扩展右边界，内层循环扩展左边界
+for (int r = 0 ; r < n ; r++) {
+	//当前考虑的元素
+	while (l <= r && check()) {//区间[left,right]不符合题意
+        //扩展左边界
+    }
+    //区间[left,right]符合题意，统计相关信息
+}
+```
